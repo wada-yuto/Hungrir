@@ -1,14 +1,17 @@
 "use client"
 
+
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Globe, MapPin, Star, JapaneseYen  } from "lucide-react"
+import { Globe, MapPin, JapaneseYen  } from "lucide-react"
 import type { Restaurant } from "@/types/restaurant"
 
 interface RestaurantCardProps {
   restaurant: Restaurant
   onClick: () => void
 }
+
+
 
 export function RestaurantCard({ restaurant, onClick }: RestaurantCardProps) {
   return (
@@ -17,11 +20,13 @@ export function RestaurantCard({ restaurant, onClick }: RestaurantCardProps) {
       onClick={onClick}
     >
       <div className="h-48 overflow-hidden">
-        <img
-          src={restaurant.photo.pc.l || "/placeholder.svg?height=200&width=400"}
-          alt={restaurant.name}
-          className="w-full h-full object-cover"
-        />
+          <picture>
+              <img
+              src={restaurant.photo.pc.l || "/placeholder.svg?height=400&width=800"}
+              alt={restaurant.name}
+              className="w-full h-full object-cover"
+            />
+          </picture>
       </div>
       <CardContent className="p-4">
         <h3 className="font-bold text-lg text-zinc-800 dark:text-zinc-100 mb-2 line-clamp-1">{restaurant.name}</h3>

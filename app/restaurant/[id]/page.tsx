@@ -51,7 +51,7 @@ export default function RestaurantDetailPage(props: { params: Promise<{ id: stri
           <div className="text-center py-12">
             <h1 className="text-2xl font-bold text-zinc-800 dark:text-zinc-200 mb-4">Restaurant not found</h1>
             <p className="text-zinc-600 dark:text-zinc-400 mb-8">
-              The restaurant you're looking for doesn't exist or has been removed.
+              The restaurant you&apos;re looking for doesn&apos;t exist or has been removed.
             </p>
             <Link href="/search">
               <Button className="bg-orange-600 hover:bg-orange-700 dark:bg-orange-600 dark:hover:bg-orange-700 text-white">
@@ -85,7 +85,6 @@ export default function RestaurantDetailPage(props: { params: Promise<{ id: stri
                 className="w-full h-full object-cover"
               />
             </div>
-
             <div className="p-6">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
                 <h1 className="text-3xl font-bold text-zinc-800 dark:text-zinc-100 mb-2 md:mb-0">{restaurant.name}</h1>
