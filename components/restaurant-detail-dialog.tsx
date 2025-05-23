@@ -107,7 +107,7 @@ export function RestaurantDetailDialog({ restaurant, isOpen, onOpenChange }: Res
           <div className="mt-6 text-center">
             <a href={restaurant.urls.pc} target="_blank" rel="noopener noreferrer" className="inline-block">
               <Button className="bg-orange-600 hover:bg-orange-700 dark:bg-orange-600 dark:hover:bg-orange-700 text-white">
-                <Globe className="mr-2 h-5 w-5" /> Visit Website
+                <Globe className="mr-2 h-5 w-5" /> ウェブサイトへ
               </Button>
             </a>
           </div>
