@@ -92,7 +92,7 @@ const handleGetCurrentLocation = () => {
         <div className="flex justify-between items-center mb-8">
           <Link href="/">
             <Button variant="ghost" className="text-orange-600 dark:text-orange-400">
-              <ArrowLeft className="mr-2 h-5 w-5" /> Back
+              <ArrowLeft className="h-10 w-10" />
             </Button>
           </Link>
           <ThemeToggle />
