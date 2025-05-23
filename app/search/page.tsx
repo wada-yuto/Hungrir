@@ -64,11 +64,11 @@ const handleGetCurrentLocation = () => {
     navigator.geolocation.getCurrentPosition(
       async (position) => {
         const { latitude, longitude } = position.coords
-        const latitude1 = 35.50993380751522
-        const longitude1 = 139.69878631892538
+        // const latitude1 = 35.50993380751522
+        // const longitude1 = 139.69878631892538
 
         try {
-          const address = await reverseGeocode(latitude1, longitude1)
+          const address = await reverseGeocode(latitude, longitude)
           setLocation(address)
         } catch (error) {
           console.error("Error reverse geocoding:", error)
