@@ -1,8 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
-import { Clock, MapPin, Globe, Phone, Star, TramFront  } from "lucide-react"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
+import { Clock, MapPin, Globe, TramFront  } from "lucide-react"
 import type { Restaurant } from "@/types/restaurant"
 import { RestaurantFeatures } from "@/components/restaurant-features"
 
@@ -20,16 +20,19 @@ export function RestaurantDetailDialog({ restaurant, isOpen, onOpenChange }: Res
       <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle className="text-xl font-bold text-zinc-800 dark:text-zinc-100 text-center">
-            "{restaurant.catch}" By {restaurant.name}
+            &quot;{restaurant.catch}&quot; By {restaurant.name}
         </DialogTitle>
         </DialogHeader>
 
         <div className="h-80 relative mt-4 rounded-md overflow-hidden">
-          <img
-            src={restaurant.photo.pc.l || "/placeholder.svg?height=400&width=800"}
-            alt={restaurant.name}
-            className="w-full h-full object-cover"
-          />
+          <picture>
+              <img
+              src={restaurant.photo.pc.l || "/placeholder.svg?height=400&width=800"}
+              alt={restaurant.name}
+              className="w-full h-full object-cover"
+            />
+          </picture>
+          
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
