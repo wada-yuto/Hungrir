@@ -22,7 +22,7 @@ export function RestaurantCard({ restaurant, onClick }: RestaurantCardProps) {
       <div className="h-48 overflow-hidden">
           <picture>
               <img
-              src={restaurant.photo.pc.l || "/placeholder.svg?height=400&width=800"}
+              src={restaurant.photo?.pc?.l ?? "/placeholder.svg?height=400&width=800"}
               alt={restaurant.name}
               className="w-full h-full object-cover"
             />

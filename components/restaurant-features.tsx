@@ -1,10 +1,10 @@
 "use client";
+
 import {
   Wifi, DoorClosed, CreditCard, Car, Ban, Wine, Utensils, Baby, Dog,
   Sun, Moon, Tv, Music2, Mic2, Languages
-} from "lucide-react"
-import type { Restaurant } from "@/types/restaurant"
-
+} from "lucide-react";
+import type { Restaurant } from "@/types/restaurant";
 import type { JSX } from "react";
 
 const featureIconMap: Record<string, () => JSX.Element> = {
@@ -25,7 +25,7 @@ const featureIconMap: Record<string, () => JSX.Element> = {
   カラオケ: () => <Mic2 className="w-5 h-5 text-orange-600 dark:text-orange-400" />,
   バンド演奏可: () => <Music2 className="w-5 h-5 text-orange-600 dark:text-orange-400" />,
   TVプロジェクター: () => <Tv className="w-5 h-5 text-orange-600 dark:text-orange-400" />,
-}
+};
 
 const formatFeatureName = (key: string): string => {
   const map: Record<string, string> = {
@@ -42,13 +42,12 @@ const formatFeatureName = (key: string): string => {
     お子様連れ: "お子様歓迎",
     ランチ: "ランチあり",
     深夜営業: "深夜営業",
-    オープンエア: "オープンエア席",
     カラオケ: "カラオケあり",
     バンド演奏可: "バンド演奏可",
     TVプロジェクター: "TV・プロジェクター",
-  }
-  return map[key] || key
-}
+  };
+  return map[key] || key;
+};
 
 const getRestaurantFeatures = (restaurant: Restaurant) => {
   return {
@@ -65,30 +64,32 @@ const getRestaurantFeatures = (restaurant: Restaurant) => {
     お子様連れ: restaurant.child?.includes("歓迎"),
     ランチ: restaurant.lunch === "あり",
     深夜営業: restaurant.midnight === "営業している",
-    オープンエア: restaurant.open_air === "あり",
     カラオケ: restaurant.karaoke === "あり",
     バンド演奏可: restaurant.band === "可",
-    TVプロジェクター: restaurant.tv === "あり" || restaurant.equipment?.includes("プロジェクター"),
-  }
-}
+    TVプロジェクター:
+      restaurant.tv === "あり" || restaurant.equipment?.includes("プロジェクター"),
+  };
+};
 
 export function RestaurantFeatures({ restaurant }: { restaurant: Restaurant }) {
-  const features = getRestaurantFeatures(restaurant)
+  const features = getRestaurantFeatures(restaurant);
 
   return (
     <div>
-      <h3 className="font-bold text-center text-zinc-800 dark:text-zinc-200 hover: text">サービス</h3>
+      <h3 className="font-bold text-center text-zinc-800 dark:text-zinc-200">サービス</h3>
       <div className="flex flex-wrap gap-4 mt-4">
-      {Object.entries(features).map(([key, enabled]) =>
-        enabled ? (
-          <div key={key} className="flex items-center gap-2">
-            {featureIconMap[key]?.()}
-            <span className="text-zinc-600 dark:text-zinc-400">{formatFeatureName(key)}</span>
-          </div>
-        ) : null
-      )}
+        {Object.entries(features).map(
+          ([key, enabled]) =>
+            enabled && (
+              <div key={key} className="flex items-center gap-2">
+                {featureIconMap[key]?.()}
+                <span className="text-zinc-600 dark:text-zinc-400">
+                  {formatFeatureName(key)}
+                </span>
+              </div>
+            )
+        )}
+      </div>
     </div>
-    </div>
-    
-  )
+  );
 }
