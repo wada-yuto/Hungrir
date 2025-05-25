@@ -157,7 +157,7 @@ const handleGetCurrentLocation = () => {
               <h2 className="text-xl font-semibold text-zinc-800 dark:text-zinc-200 mb-4">
                 {restaurants.length > 0
                   ? ` 約${rangeToDistance(radius)}以内に${restaurants.length}件リストアップ `
-                  : "No restaurants found. Try increasing the radius or changing location."}
+                  : "付近にレストランがありません。検索範囲を広くしてください。"}
               </h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

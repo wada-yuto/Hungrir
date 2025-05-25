@@ -3,7 +3,7 @@ export async function reverseGeocode(lat: number, lng: number): Promise<string> 
   const res = await fetch(`/api/reverse-geocode?lat=${lat}&lng=${lng}`)
 
   if (!res.ok) {
-    throw new Error("Failed to reverse geocode location")
+    throw new Error("リバースジオコード失敗")
   }
 
   const data = await res.json()
@@ -20,7 +20,7 @@ export async function searchRestaurants(location: string, range: number) {
   )
 
   if (!res.ok) {
-    throw new Error("Failed to search restaurants")
+    throw new Error("検索失敗")
   }
 
   const data = await res.json()
